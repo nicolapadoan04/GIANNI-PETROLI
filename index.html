@@ -31,8 +31,11 @@
     .prezzi { margin-top: 1rem; }
     .prezzi div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd; font-weight: 500; transition: background 0.2s; }
     .prezzi div:hover { background-color: #f2f2f2; }
-    .map { margin-top: 1.5rem; }
-    .map a button { background-color: #e60000; color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+    .prezzi-box { margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .prezzi-box h3 { color: #e60000; margin-bottom: 0.8rem; }
+    .update-date { font-size: 0.9rem; color: #666; margin-top: 8px; font-style: italic; }
+    .map { margin-top: 1rem; }
+    .map a button { background-color: #e60000; color: white; border: none; padding: 10px 18px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.3s, transform 0.2s; }
     .map a button:hover { background-color: #cc0000; transform: translateY(-2px); }
     ul { padding-left: 1.5rem; margin-top: 1rem; }
     li { margin-bottom: 8px; font-size: 1.1rem; }
@@ -86,14 +89,35 @@
 
     <section class="section">
       <h2>Prezzi Carburanti</h2>
-      <div class="prezzi">
-        <div><span>Benzina</span><span>1,785 €/litro</span></div>
-        <div><span>Diesel</span><span>1,699 €/litro</span></div>
+
+      <!-- Prezzi Chioggia -->
+      <div class="prezzi-box">
+        <h3>⛽ Sede di Chioggia</h3>
+        <div class="prezzi">
+          <div><span>Benzina</span><span>1,785 €/litro</span></div>
+          <div><span>Diesel</span><span>1,699 €/litro</span></div>
+        </div>
+        <p class="update-date">Ultimo aggiornamento: 29/08/2025</p>
+        <div class="map">
+          <a href="https://maps.app.goo.gl/GcKr3VsA1LiGgGQJ6" target="_blank">
+            <button>📍 VAI ALLA SEDE DI CHIOGGIA</button>
+          </a>
+        </div>
       </div>
-      <div class="map">
-        <a href="https://maps.app.goo.gl/3KsmkxFqEVT6qcQj7" target="_blank">
-          <button>TROVA IL DISTRIBUTORE</button>
-        </a>
+
+      <!-- Prezzi Porto Levante -->
+      <div class="prezzi-box">
+        <h3>⛽ Sede di Porto Levante</h3>
+        <div class="prezzi">
+          <div><span>Benzina</span><span>1,789 €/litro</span></div>
+          <div><span>Diesel</span><span>1,699 €/litro</span></div>
+        </div>
+        <p class="update-date">Ultimo aggiornamento: 29/08/2025</p>
+        <div class="map">
+          <a href="https://maps.app.goo.gl/8cBEmUeTXE5zB61c9" target="_blank">
+            <button>📍 VAI ALLA SEDE DI PORTO LEVANTE</button>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -110,7 +134,7 @@
       <h2>Le nostre sedi</h2>
       <div class="sedi">
         <div class="sede">
-          <img src="IMG_3201.jpg" alt="Porto Levante">
+          <img src="IMG_3201.jpg" alt="Distributore Porto Levante Gianni Petroli">
           <h3>PORTO LEVANTE</h3>
           <p><strong>Orari:</strong><br>
             Lun-Ven: 8-12 / 14.30-18<br>
@@ -119,7 +143,7 @@
           </p>
         </div>
         <div class="sede">
-          <img src="IMG_6229.jpg" alt="Chioggia">
+          <img src="IMG_6229.jpg" alt="Distributore Chioggia Gianni Petroli">
           <h3>CHIOGGIA</h3>
           <p><strong>Orari:</strong><br>
             Lun-Ven: 8-12 / 14.30-18<br>

@@ -6,63 +6,73 @@
   <meta name="description" content="GIANNI PETROLI S.R.L.: Scopri i prezzi aggiornati dei carburanti e i nostri servizi 24H.">
   <title>GIANNI PETROLI S.R.L.</title>
   <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { font-family: Arial, sans-serif; background:#fff; color:#111; line-height:1.6; }
-    header { background:#fff; border-bottom:2px solid #e0e0e0; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.05);}
-    .logo { display:flex; align-items:center; }
-    .logo img { width:50px; height:50px; object-fit:cover; margin-right:12px; border-radius:8px; transition:transform 0.3s;}
-    .logo img:hover { transform:scale(1.05);}
-    .logo-name { font-size:1.4rem; font-weight:bold; color:#0033a0;}
-    .tag { background:#f2f2f2; color:#333; padding:6px 14px; border-radius:20px; margin-left:8px; font-size:12px; cursor:pointer; transition:background 0.3s;}
-    .tag:hover { background:#e0e0e0; }
-    .main { padding:2rem 1rem; max-width:1000px; margin:auto; }
-    .intro { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:3rem; }
-    .intro-text { max-width:55%; transition:all 0.3s;}
-    .intro h1 { font-size:2.8rem; color:#0033a0; margin-bottom:0.5rem;}
-    .intro p { font-size:1.2rem; margin-bottom:1rem;}
-    .btn-red { background:#e60000; color:white; border:none; padding:12px 24px; font-weight:bold; border-radius:6px; cursor:pointer; text-decoration:none; transition: background 0.3s, transform 0.2s;}
-    .btn-red:hover { background:#cc0000; transform:translateY(-2px);}
-    .intro img { max-width:350px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:transform 0.3s;}
-    .intro img:hover { transform:scale(1.05);}
-    .section { margin-top:3rem; padding:1.5rem; background:#f9f9f9; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05);}
-    .section h2 { font-size:2rem; color:#0033a0; margin-bottom:1rem;}
-    .prezzi { margin-top:1rem; }
-    .prezzi div { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #ddd; font-weight:500; transition:background 0.2s;}
-    .prezzi div:hover { background:#f2f2f2;}
-    .map { margin-top:1.5rem;}
-    .map a button { background:#e60000; color:white; border:none; padding:12px 24px; font-weight:bold; border-radius:6px; cursor:pointer; transition:background 0.3s, transform 0.2s;}
-    .map a button:hover { background:#cc0000; transform:translateY(-2px);}
-    ul { padding-left:1.5rem; margin-top:1rem;}
-    li { margin-bottom:8px; font-size:1.1rem;}
-    /* Immagini sedi */
-    .sedi { display:flex; gap:20px; margin-top:1rem; flex-wrap:wrap;}
-    .sede { flex:1; text-align:center;}
-    .sede img { width:100%; max-width:300px; border-radius:12px; box-shadow:0 5px 10px rgba(0,0,0,0.1);}
-    .sede-title { margin-top:8px; font-weight:bold; color:#0033a0; font-size:1.2rem;}
+    /* Reset base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background-color: #ffffff; color: #111; line-height: 1.6; }
+    header { background-color: #ffffff; border-bottom: 2px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .logo { display: flex; align-items: center; }
+    .logo img { width: 50px; height: 50px; object-fit: cover; margin-right: 12px; border-radius: 8px; transition: transform 0.3s; }
+    .logo img:hover { transform: scale(1.05); }
+    .logo-name { font-size: 1.4rem; font-weight: bold; color: #0033a0; }
+    .tag { background-color: #f2f2f2; color: #333; padding: 6px 14px; border-radius: 20px; margin-left: 8px; font-size: 12px; transition: background 0.3s; text-decoration: none; }
+    .tag:hover { background-color: #e0e0e0; }
+    .main { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+    .intro { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .intro-text { max-width: 55%; transition: all 0.3s; }
+    .intro h1 { font-size: 2.8rem; color: #0033a0; margin-bottom: 0.5rem; }
+    .intro p { font-size: 1.2rem; margin-bottom: 1rem; }
+    .btn-red { background-color: #e60000; color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-decoration: none; transition: background 0.3s, transform 0.2s; display: inline-block; }
+    .btn-red:hover { background-color: #cc0000; transform: translateY(-2px); }
+    .intro img { max-width: 350px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .intro img:hover { transform: scale(1.05); }
+    .section { margin-top: 3rem; padding: 1.5rem; background-color: #f9f9f9; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .section h2 { font-size: 2rem; color: #0033a0; margin-bottom: 1rem; }
+    .prezzi { margin-top: 1rem; }
+    .prezzi div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd; font-weight: 500; transition: background 0.2s; }
+    .prezzi div:hover { background-color: #f2f2f2; }
+    .map { margin-top: 1.5rem; }
+    .map a button { background-color: #e60000; color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+    .map a button:hover { background-color: #cc0000; transform: translateY(-2px); }
+    ul { padding-left: 1.5rem; margin-top: 1rem; }
+    li { margin-bottom: 8px; font-size: 1.1rem; }
+    .sedi { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; }
+    .sede { flex: 1 1 45%; background: #fff; border-radius: 12px; padding: 1rem; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .sede img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+    .sede h3 { color: #e60000; margin-bottom: 8px; }
+    .sede p { font-size: 1rem; }
     /* Responsive */
-    @media (max-width:768px){ .intro { flex-direction:column; align-items:center; text-align:center;} .intro-text{max-width:100%; margin-bottom:20px;} .intro img{width:80%; max-width:300px;} header{flex-direction:column; align-items:flex-start;} .tag{margin-left:0; margin-top:5px;} }
-    @media (max-width:480px){ .intro h1{font-size:2rem;} .btn-red{padding:10px 20px;font-size:14px;} .section h2{font-size:1.6rem;} }
+    @media (max-width: 768px) {
+      .intro { flex-direction: column; align-items: center; text-align: center; }
+      .intro-text { max-width: 100%; margin-bottom: 20px; }
+      .intro img { width: 80%; max-width: 300px; }
+      header { flex-direction: column; align-items: flex-start; }
+      .tag { margin-left: 0; margin-top: 5px; }
+      .sedi { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .intro h1 { font-size: 2rem; }
+      .btn-red { padding: 10px 20px; font-size: 14px; }
+      .section h2 { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">
       <img src="IMG_3735.jpeg" alt="Logo Gianni Petroli" />
       <div class="logo-name">GIANNI PETROLI S.R.L.</div>
     </div>
     <div>
-      <!-- HAN diventa SEDI -->
-      <span class="tag" onclick="document.getElementById('sedi-section').scrollIntoView({behavior:'smooth'})">SEDI</span>
-      <!-- Area amministrativa link -->
-      <span class="tag" onclick="window.location.href='tel:3333023626'; window.open('mailto:amministrazione@giannipetroli.it')">AREA AMMINISTRATIVA</span>
+      <a href="#sedi" class="tag">SEDI</a>
+      <a href="tel:3333023626" class="tag">AREA AMMINISTRATIVA</a>
+      <a href="mailto:amministrazione@giannipetroli.it" class="tag">EMAIL</a>
     </div>
   </header>
 
   <div class="main">
     <section class="intro">
       <div class="intro-text">
-        <h1>Benvenuto!</h1>
+        <h1>BENVENUTO!</h1>
         <p>Scopri i nostri servizi<br>e i prezzi aggiornati</p>
         <a href="tel:041400567" class="btn-red">CONTATTI</a>
       </div>
@@ -91,23 +101,30 @@
       </ul>
     </section>
 
-    <!-- Sezione Sedi -->
-    <section id="sedi-section" class="section">
-      <h2>Sedi</h2>
+    <section id="sedi" class="section">
+      <h2>Le nostre sedi</h2>
       <div class="sedi">
         <div class="sede">
-          <img src="porto_levante.jpg" alt="Porto Levante">
-          <div class="sede-title">PORTO LEVANTE</div>
+          <img src="IMG_3201.jpg" alt="Porto Levante">
+          <h3>PORTO LEVANTE</h3>
+          <p><strong>Orari:</strong><br>
+            Lun-Ven: 8-12 / 14.30-18<br>
+            Sabato: 8-12<br>
+            Domenica: Chiuso
+          </p>
         </div>
         <div class="sede">
-          <img src="chioggia.jpg" alt="Chioggia">
-          <div class="sede-title">CHIOGGIA</div>
+          <img src="IMG_6229.jpg" alt="Chioggia">
+          <h3>CHIOGGIA</h3>
+          <p><strong>Orari:</strong><br>
+            Lun-Ven: 8-12 / 14.30-18<br>
+            Sabato: 8-12<br>
+            Domenica: Chiuso
+          </p>
         </div>
       </div>
     </section>
-
   </div>
-
 </body>
 </html>
 

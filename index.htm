@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="GIANNI PETROLI S.R.L.: Scopri i prezzi aggiornati dei carburanti e i nostri servizi 24H.">
   <title>GIANNI PETROLI S.R.L.</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset base */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
       background-color: #ffffff;
-      color: #000;
+      color: #111;
+      line-height: 1.6;
     }
 
     header {
@@ -20,6 +27,10 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .logo {
@@ -28,15 +39,20 @@
     }
 
     .logo img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      margin-right: 10px;
-      border-radius: 5px;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 12px;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
     .logo-name {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #0033a0;
     }
@@ -44,14 +60,19 @@
     .tag {
       background-color: #f2f2f2;
       color: #333;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
-      margin-left: 10px;
+      margin-left: 8px;
       font-size: 12px;
+      transition: background 0.3s;
+    }
+
+    .tag:hover {
+      background-color: #e0e0e0;
     }
 
     .main {
-      padding: 2rem;
+      padding: 2rem 1rem;
       max-width: 1000px;
       margin: auto;
     }
@@ -61,49 +82,65 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
 
     .intro-text {
-      max-width: 50%;
+      max-width: 55%;
+      transition: all 0.3s;
     }
 
     .intro h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #0033a0;
-      margin: 0;
+      margin-bottom: 0.5rem;
     }
 
     .intro p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     .btn-red {
       background-color: #e60000;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-weight: bold;
-      margin-top: 1rem;
-      cursor: pointer;
       border-radius: 6px;
-      font-size: 14px;
+      cursor: pointer;
       text-decoration: none;
-      display: inline-block;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-red:hover {
+      background-color: #cc0000;
+      transform: translateY(-2px);
     }
 
     .intro img {
-      max-width: 300px;
+      max-width: 350px;
       border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .intro img:hover {
+      transform: scale(1.05);
     }
 
     .section {
       margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
     .section h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #0033a0;
+      margin-bottom: 1rem;
     }
 
     .prezzi {
@@ -113,8 +150,14 @@
     .prezzi div {
       display: flex;
       justify-content: space-between;
-      padding: 5px 0;
+      padding: 8px 0;
       border-bottom: 1px solid #ddd;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .prezzi div:hover {
+      background-color: #f2f2f2;
     }
 
     .map {
@@ -125,20 +168,34 @@
       background-color: #e60000;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .map a button:hover {
+      background-color: #cc0000;
+      transform: translateY(-2px);
     }
 
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
     }
 
+    li {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .intro {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
       }
 
       .intro-text {
@@ -147,16 +204,43 @@
       }
 
       .intro img {
-        width: 100%;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .tag {
+        margin-left: 0;
+        margin-top: 5px;
       }
     }
+
+    @media (max-width: 480px) {
+      .intro h1 {
+        font-size: 2rem;
+      }
+
+      .btn-red {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <header>
     <div class="logo">
-      <img src="IMG_3735.jpeg" alt="Logo GIANNI PETROLI" />
+      <img src="IMG_3735.jpeg" alt="Logo Gianni Petroli" />
       <div class="logo-name">GIANNI PETROLI S.R.L.</div>
     </div>
     <div>
@@ -181,7 +265,6 @@
         <div><span>Benzina</span><span>1,785 €/litro</span></div>
         <div><span>Diesel</span><span>1,699 €/litro</span></div>
       </div>
-
       <div class="map">
         <a href="https://maps.app.goo.gl/3KsmkxFqEVT6qcQj7" target="_blank">
           <button>TROVA IL DISTRIBUTORE</button>
@@ -201,4 +284,5 @@
 
 </body>
 </html>
+
 

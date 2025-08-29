@@ -26,6 +26,8 @@
     .map a button { background-color: #e60000; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; }
     ul { padding-left: 1.2rem; }
     #profiles-list { margin-top: 1rem; }
+    input { margin: 5px 0; padding: 8px; width: 100%; max-width: 300px; }
+    button { margin-top: 5px; }
     @media (max-width: 768px) {
       .intro { flex-direction: column; align-items: flex-start; }
       .intro-text { max-width: 100%; margin-bottom: 20px; }
@@ -78,7 +80,7 @@
     </ul>
   </section>
 
-  <!-- Form registrazione -->
+  <!-- Form registrazione e login -->
   <section class="section">
     <h2>Registrazione / Login</h2>
     <form id="signup-form">
@@ -94,13 +96,17 @@
     </form>
   </section>
 
-  <!-- Gestione profili -->
+  <!-- Form creazione profilo con nome e bio -->
   <section class="section">
-    <button id="create-profile">Crea profilo</button>
+    <h2>Crea il tuo profilo</h2>
+    <form id="profile-form">
+      <input type="text" id="profile-name" placeholder="Nome" required>
+      <input type="text" id="profile-bio" placeholder="Bio" required>
+      <button type="submit">Crea profilo</button>
+    </form>
     <button id="get-profiles">Mostra profili</button>
     <div id="profiles-list"></div>
   </section>
-
 </div>
 
 <!-- Supabase -->
@@ -133,16 +139,25 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   else alert("Login avvenuto!");
 });
 
-// Crea profilo
-document.getElementById("create-profile").addEventListener("click", async () => {
+// Crea profilo con nome e bio
+document.getElementById("profile-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) { alert("Devi essere loggato per creare un profilo!"); return; }
 
+  const nome = document.getElementById("profile-name").value;
+  const bio = document.getElementById("profile-bio").value;
+
   const { data, error } = await supabase.from("profili").insert([
-    { id: user.id, nome: "Mario Rossi", bio: "Ciao a tutti!" }
+    { id: user.id, nome, bio }
   ]);
+
   if (error) alert("Errore: " + error.message);
-  else alert("Profilo creato!");
+  else {
+    alert("Profilo creato!");
+    document.getElementById("profile-form").reset();
+  }
 });
 
 // Mostra profili

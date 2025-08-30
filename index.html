@@ -94,10 +94,10 @@
       <div class="prezzi-box">
         <h3>⛽ Sede di Chioggia</h3>
         <div class="prezzi">
-          <div><span>Benzina</span><span>1,785 €/litro</span></div>
-          <div><span>Diesel</span><span>1,699 €/litro</span></div>
+          <div><span>Benzina</span><span id="chioggia-benzina"></span></div>
+          <div><span>Diesel</span><span id="chioggia-diesel"></span></div>
         </div>
-        <p class="update-date">Ultimo aggiornamento: 29/08/2025</p>
+        <p class="update-date" id="chioggia-update"></p>
         <div class="map">
           <a href="https://maps.app.goo.gl/GcKr3VsA1LiGgGQJ6" target="_blank">
             <button>📍 VAI ALLA SEDE DI CHIOGGIA</button>
@@ -109,10 +109,10 @@
       <div class="prezzi-box">
         <h3>⛽ Sede di Porto Levante</h3>
         <div class="prezzi">
-          <div><span>Benzina</span><span>1,789 €/litro</span></div>
-          <div><span>Diesel</span><span>1,699 €/litro</span></div>
+          <div><span>Benzina</span><span id="porto-benzina"></span></div>
+          <div><span>Diesel</span><span id="porto-diesel"></span></div>
         </div>
-        <p class="update-date">Ultimo aggiornamento: 29/08/2025</p>
+        <p class="update-date" id="porto-update"></p>
         <div class="map">
           <a href="https://maps.app.goo.gl/8cBEmUeTXE5zB61c9" target="_blank">
             <button>📍 VAI ALLA SEDE DI PORTO LEVANTE</button>
@@ -164,5 +164,25 @@
       <p>🕒 Lun-Ven: 8-12 / 14.30-18 | Sab: 8-12 | Dom: chiuso</p>
     </div>
   </footer>
+
+  <!-- Script per caricare i prezzi dal JSON -->
+  <script>
+    fetch("prezzi.json")
+      .then(res => res.json())
+      .then(data => {
+        // Chioggia
+        document.getElementById("chioggia-benzina").innerText = data.chioggia.benzina;
+        document.getElementById("chioggia-diesel").innerText = data.chioggia.diesel;
+        document.getElementById("chioggia-update").innerText = "Ultimo aggiornamento: " + data.chioggia.update;
+
+        // Porto Levante
+        document.getElementById("porto-benzina").innerText = data.porto_levante.benzina;
+        document.getElementById("porto-diesel").innerText = data.porto_levante.diesel;
+        document.getElementById("porto-update").innerText = "Ultimo aggiornamento: " + data.porto_levante.update;
+      })
+      .catch(err => {
+        console.error("Errore nel caricamento dei prezzi:", err);
+      });
+  </script>
 </body>
 </html>

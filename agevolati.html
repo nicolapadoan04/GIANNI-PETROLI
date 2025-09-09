@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prodotti Agevolati - GIANNI PETROLI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="GIANNI PETROLI S.R.L.: Prezzi agevolati carburanti">
+  <title>Prezzi Agevolati - GIANNI PETROLI</title>
+  <link rel="icon" href="IMG_3735.jpeg" type="image/jpeg">
   <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
-    .main { max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    h1 { color: #0033a0; margin-bottom: 1.5rem; }
-    .prezzi-box { margin-bottom: 1.5rem; padding: 1rem; background: #fefefe; border: 1px solid #ddd; border-radius: 8px; }
-    .prezzi-box h2 { color: #e60000; margin-bottom: 0.8rem; }
-    .prezzi { margin-top: 1rem; }
-    .prezzi div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd; font-weight: 500; }
-    .update-date { font-size: 0.9rem; color: #666; margin-top: 8px; font-style: italic; }
-    .btn-home { display: inline-block; margin-top: 1rem; background: #0033a0; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
-    .btn-home:hover { background: #002080; }
+    body { font-family: Arial, sans-serif; background: #fff; color: #111; margin:0; padding:0; }
+    .main { padding:2rem; max-width:800px; margin:auto; }
+    h1,h2 { color:#0033a0; }
+    .prezzi-box { margin-bottom:1.5rem; padding:1rem; background:#f9f9f9; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .prezzi-box h3 { color:#e60000; margin-bottom:0.8rem; }
+    .prezzi div { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #ddd; }
+    .update-date { font-size:0.9rem; color:#666; margin-top:6px; font-style:italic; }
+    a.button { display:inline-block; margin-top:10px; padding:10px 18px; background:#e60000; color:#fff; text-decoration:none; border-radius:6px; }
+    a.button:hover { background:#cc0000; }
   </style>
 </head>
 <body>
   <div class="main">
-    <h1>Prodotti Agevolati</h1>
+    <h1>Prezzi Agevolati</h1>
 
     <div class="prezzi-box">
-      <h2>⛽ Sede di Chioggia</h2>
+      <h3>⛽ Sede di Chioggia</h3>
       <div class="prezzi">
-        <div><span>Gasolio Motopesca</span><span id="chioggia-gasolio"></span></div>
+        <div><span>Benzina</span><span id="chioggia-benzina"></span></div>
+        <div><span>Diesel Motopesca</span><span id="chioggia-diesel"></span></div>
       </div>
       <p class="update-date" id="chioggia-update"></p>
+      <a href="https://maps.app.goo.gl/GcKr3VsA1LiGgGQJ6" target="_blank" class="button">📍 Vai alla sede di Chioggia</a>
     </div>
 
     <div class="prezzi-box">
-      <h2>⛽ Sede di Porto Levante</h2>
+      <h3>⛽ Sede di Porto Levante</h3>
       <div class="prezzi">
         <div><span>Benzina Agevolata</span><span id="porto-benzina"></span></div>
-        <div><span>Gasolio Motopesca</span><span id="porto-gasolio"></span></div>
+        <div><span>Diesel Motopesca</span><span id="porto-diesel"></span></div>
       </div>
       <p class="update-date" id="porto-update"></p>
+      <a href="https://maps.app.goo.gl/8cBEmUeTXE5zB61c9" target="_blank" class="button">📍 Vai alla sede di Porto Levante</a>
     </div>
-
-    <a href="index.html" class="btn-home">⬅ Torna alla Home</a>
   </div>
 
   <script>
     fetch("prezziagevolati.json")
       .then(res => res.json())
       .then(data => {
-        document.getElementById("chioggia-gasolio").innerText = data.chioggia.gasolio_motopesca;
+        document.getElementById("chioggia-benzina").innerText = data.chioggia.benzina;
+        document.getElementById("chioggia-diesel").innerText = data.chioggia.diesel;
         document.getElementById("chioggia-update").innerText = "Ultimo aggiornamento: " + data.chioggia.update;
 
-        document.getElementById("porto-benzina").innerText = data.porto_levante.benzina_agevolata;
-        document.getElementById("porto-gasolio").innerText = data.porto_levante.gasolio_motopesca;
+        document.getElementById("porto-benzina").innerText = data.porto_levante.benzina;
+        document.getElementById("porto-diesel").innerText = data.porto_levante.diesel;
         document.getElementById("porto-update").innerText = "Ultimo aggiornamento: " + data.porto_levante.update;
       })
       .catch(err => console.error("Errore nel caricamento dei prezzi agevolati:", err));

@@ -9,7 +9,6 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background-color: #ffffff; color: #111; line-height: 1.6; }
-
     /* Banner scorrevole continuo */
     .banner {
       background: linear-gradient(90deg, #e60000, #ff9900);
@@ -21,28 +20,11 @@
       display: flex;
       align-items: center;
     }
-    .banner-track {
-      display: flex;
-      width: max-content;
-      animation: scroll-loop 15s linear infinite;
-    }
-    .banner-text {
-      flex: none;
-      padding: 0 2rem;
-    }
-    .banner-text a {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-decoration: none;
-      white-space: nowrap;
-      letter-spacing: 1px;
-    }
+    .banner-track { display: flex; width: max-content; animation: scroll-loop 15s linear infinite; }
+    .banner-text { flex: none; padding: 0 2rem; }
+    .banner-text a { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; white-space: nowrap; letter-spacing: 1px; }
     .banner-text a:hover { text-decoration: underline; }
-    @keyframes scroll-loop {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+    @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     header { background-color: #ffffff; border-bottom: 2px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 40px; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     .logo { display: flex; align-items: center; }
@@ -99,7 +81,7 @@
 </head>
 <body>
 
-  <!-- 🔹 Banner -->
+  <!-- Banner scorrevole -->
   <div class="banner">
     <div class="banner-track">
       <div class="banner-text">
@@ -135,8 +117,6 @@
 
     <section class="section">
       <h2>Prezzi Carburanti</h2>
-
-      <!-- Prezzi Chioggia -->
       <div class="prezzi-box">
         <h3>⛽ Sede di Chioggia</h3>
         <div class="prezzi">
@@ -144,14 +124,8 @@
           <div><span>Diesel</span><span id="chioggia-diesel"></span></div>
         </div>
         <p class="update-date" id="chioggia-update"></p>
-        <div class="map">
-          <a href="https://maps.app.goo.gl/GcKr3VsA1LiGgGQJ6" target="_blank">
-            <button>📍 VAI ALLA SEDE DI CHIOGGIA</button>
-          </a>
-        </div>
       </div>
 
-      <!-- Prezzi Porto Levante -->
       <div class="prezzi-box">
         <h3>⛽ Sede di Porto Levante</h3>
         <div class="prezzi">
@@ -159,11 +133,6 @@
           <div><span>Diesel</span><span id="porto-diesel"></span></div>
         </div>
         <p class="update-date" id="porto-update"></p>
-        <div class="map">
-          <a href="https://maps.app.goo.gl/8cBEmUeTXE5zB61c9" target="_blank">
-            <button>📍 VAI ALLA SEDE DI PORTO LEVANTE</button>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -174,30 +143,6 @@
         <li>Bar</li>
         <li>Rifornimento d’acqua</li>
       </ul>
-    </section>
-
-    <section id="sedi" class="section">
-      <h2>Le nostre sedi</h2>
-      <div class="sedi">
-        <div class="sede">
-          <img src="IMG_3201.jpg" alt="Distributore Porto Levante Gianni Petroli">
-          <h3>PORTO LEVANTE</h3>
-          <p><strong>Orari:</strong><br>
-            Lun-Ven: 8-12 / 14.30-18<br>
-            Sabato: 8-12<br>
-            Domenica: Chiuso
-          </p>
-        </div>
-        <div class="sede">
-          <img src="IMG_6229.jpg" alt="Distributore Chioggia Gianni Petroli">
-          <h3>CHIOGGIA</h3>
-          <p><strong>Orari:</strong><br>
-            Lun-Ven: 8-12 / 14.30-18<br>
-            Sabato: 8-12<br>
-            Domenica: Chiuso
-          </p>
-        </div>
-      </div>
     </section>
   </div>
 
@@ -225,6 +170,5 @@
       })
       .catch(err => console.error("Errore nel caricamento dei prezzi:", err));
   </script>
-
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prodotti Agevolati - GIANNI PETROLI</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+    .main { max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h1 { color: #0033a0; margin-bottom: 1.5rem; }
+    .prezzi-box { margin-bottom: 1.5rem; padding: 1rem; background: #fefefe; border: 1px solid #ddd; border-radius: 8px; }
+    .prezzi-box h2 { color: #e60000; margin-bottom: 0.8rem; }
+    .prezzi { margin-top: 1rem; }
+    .prezzi div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd; font-weight: 500; }
+    .update-date { font-size: 0.9rem; color: #666; margin-top: 8px; font-style: italic; }
+    .btn-home { display: inline-block; margin-top: 1rem; background: #0033a0; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .btn-home:hover { background: #002080; }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>Prodotti Agevolati</h1>
+
+    <div class="prezzi-box">
+      <h2>⛽ Sede di Chioggia</h2>
+      <div class="prezzi">
+        <div><span>Gasolio Motopesca</span><span id="chioggia-gasolio"></span></div>
+      </div>
+      <p class="update-date" id="chioggia-update"></p>
+    </div>
+
+    <div class="prezzi-box">
+      <h2>⛽ Sede di Porto Levante</h2>
+      <div class="prezzi">
+        <div><span>Benzina Agevolata</span><span id="porto-benzina"></span></div>
+        <div><span>Gasolio Motopesca</span><span id="porto-gasolio"></span></div>
+      </div>
+      <p class="update-date" id="porto-update"></p>
+    </div>
+
+    <a href="index.html" class="btn-home">⬅ Torna alla Home</a>
+  </div>
+
+  <script>
+    fetch("prezziagevolati.json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("chioggia-gasolio").innerText = data.chioggia.gasolio_motopesca;
+        document.getElementById("chioggia-update").innerText = "Ultimo aggiornamento: " + data.chioggia.update;
+
+        document.getElementById("porto-benzina").innerText = data.porto_levante.benzina_agevolata;
+        document.getElementById("porto-gasolio").innerText = data.porto_levante.gasolio_motopesca;
+        document.getElementById("porto-update").innerText = "Ultimo aggiornamento: " + data.porto_levante.update;
+      })
+      .catch(err => console.error("Errore nel caricamento dei prezzi agevolati:", err));
+  </script>
+</body>
+</html>
